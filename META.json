@@ -1,0 +1,46 @@
+{
+   "abstract" : "YouTube title-fetch plugin for Bot::Cobalt",
+   "author" : [
+      "Jon Portnoy <avenj@cobaltirc.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4001, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Bot-Cobalt-Plugin-YouTube",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.40"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Bot::Cobalt" : "0.003",
+            "HTML::TokeParser" : "3.69",
+            "HTTP::Request" : "0",
+            "URI::Escape" : "0",
+            "perl" : "v5.10.1",
+            "strictures" : "1"
+         }
+      }
+   },
+   "provides" : {
+      "Bot::Cobalt::Plugin::YouTube" : {
+         "file" : "lib/Bot/Cobalt/Plugin/YouTube.pm",
+         "version" : "0.001"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ]
+   },
+   "version" : "0.001"
+}
