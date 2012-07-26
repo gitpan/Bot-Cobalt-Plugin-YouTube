@@ -10,6 +10,8 @@ DESCRIPTION
     Retrieves YouTube links pasted to an IRC channel and reports titles (as
     well as shorter urls) to IRC.
 
+    Operates on both 'youtube.com' and 'youtu.be' links.
+
 AUTHOR
     Jon Portnoy <avenj@cobaltirc.org>
 

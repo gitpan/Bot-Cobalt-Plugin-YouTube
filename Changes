@@ -1,5 +1,10 @@
 # Changes for Bot::Cobalt::Plugin::YouTube
 
+ * 0.002
+
+   Also fetch metadata from 'youtu.be' short links.
 
  * 0.001
+
    Initial release.
+

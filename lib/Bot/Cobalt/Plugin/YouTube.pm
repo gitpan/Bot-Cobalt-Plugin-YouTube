@@ -1,5 +1,5 @@
 package Bot::Cobalt::Plugin::YouTube;
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Bot::Cobalt;
 use Bot::Cobalt::Common;
@@ -12,11 +12,11 @@ use HTTP::Request;
 
 use URI::Escape;
 
-sub REGEX { 0 }
+sub REGEX () { 0 }
 
 sub new { 
   bless [
-    qr{youtube\.com/(\S+)},  ## ->[REGEX]
+    qr{(youtu\.be|youtube\.com)/(\S+)},  ## ->[REGEX]
   ], shift
 }
 
@@ -41,12 +41,29 @@ sub Cobalt_unregister {
   PLUGIN_EAT_NONE
 }
 
+sub _create_yt_link {
+  my ($self, $base, $id) = @_;
+
+  "http://www.youtube.com/"
+      . ($base eq "youtu.be" ? "watch?v=" : "")
+      . uri_escape($id)
+}
+
 sub Bot_public_msg {
   my ($self, $core) = splice @_, 0, 2;
   my $msg = ${ $_[0] };
 
-  if (my ($id) = $msg->stripped =~ $self->[REGEX]) {
-    my $req_url = "http://www.youtube.com/" . uri_escape($id) ;
+  my ($base, $id) = $msg->stripped =~ $self->[REGEX] ;
+
+  if ($base && defined $id) {
+    unless (core()->Provided->{www_request}) {
+      logger->warn(
+        "We appear to be missing Bot::Cobalt::Plugin::WWW; ",
+        "it may not be possible to issue async HTTP requests."
+      );
+    }
+    
+    my $req_url = $self->_create_yt_link($base, $id);
 
     logger->debug("dispatching request to $req_url");
 
@@ -110,7 +127,7 @@ sub Bot_youtube_plug_resp_recv {
   PLUGIN_EAT_ALL
 }
 
-1
+1;
 
 =pod
 
@@ -128,6 +145,8 @@ A L<Bot::Cobalt> plugin.
 
 Retrieves YouTube links pasted to an IRC channel and reports titles 
 (as well as shorter urls) to IRC.
+
+Operates on both 'youtube.com' and 'youtu.be' links.
 
 =head1 AUTHOR
 

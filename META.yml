@@ -15,7 +15,7 @@ name: Bot-Cobalt-Plugin-YouTube
 provides:
   Bot::Cobalt::Plugin::YouTube:
     file: lib/Bot/Cobalt/Plugin/YouTube.pm
-    version: 0.001
+    version: 0.002
 requires:
   Bot::Cobalt: 0.003
   HTML::TokeParser: 3.69
@@ -25,4 +25,4 @@ requires:
   strictures: 1
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.001
+version: 0.002
