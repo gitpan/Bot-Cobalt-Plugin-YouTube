@@ -12,6 +12,8 @@ DESCRIPTION
 
     Operates on both 'youtube.com' and 'youtu.be' links.
 
+    Disregards channels with a 'no_yt_retrieve' flag enabled.
+
 AUTHOR
     Jon Portnoy <avenj@cobaltirc.org>
 

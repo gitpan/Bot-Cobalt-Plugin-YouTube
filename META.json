@@ -1,10 +1,10 @@
 {
-   "abstract" : "YouTube title-fetch plugin for Bot::Cobalt",
+   "abstract" : "YouTube plugin for Bot::Cobalt",
    "author" : [
       "Jon Portnoy <avenj@cobaltirc.org>"
    ],
-   "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.4001, CPAN::Meta::Converter version 2.120921",
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -16,31 +16,39 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.40"
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
          }
       },
       "runtime" : {
          "requires" : {
-            "Bot::Cobalt" : "0.003",
+            "Bot::Cobalt" : "0",
+            "Carp" : "0",
             "HTML::TokeParser" : "3.69",
             "HTTP::Request" : "0",
             "URI::Escape" : "0",
-            "perl" : "v5.10.1",
+            "perl" : "v5.12.1",
             "strictures" : "1"
          }
-      }
-   },
-   "provides" : {
-      "Bot::Cobalt::Plugin::YouTube" : {
-         "file" : "lib/Bot/Cobalt/Plugin/YouTube.pm",
-         "version" : "0.002"
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0.88"
+         }
       }
    },
    "release_status" : "stable",
    "resources" : {
-      "license" : [
-         "http://dev.perl.org/licenses/"
-      ]
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/avenj/bot-cobalt-plugin-youtube.git",
+         "web" : "https://github.com/avenj/bot-cobalt-plugin-youtube"
+      }
    },
-   "version" : "0.002"
+   "version" : "0.003000"
 }
+
